@@ -1,0 +1,27 @@
+####################################################################
+
+				Vertex Class
+
+####################################################################
+Class Vertex handles homogeneous coordinates
+
+Constructor:
+
+	Vertex(	[ x,	y,	z,	w,	color ]	)
+
+	The first 3 values are required and define the positioning.
+
+	w			---	is initilised as 1 by default
+	color		---	is initilised as White
+
+
+Methods:
+
+	Each of the values taken by the constructor assessor to get
+		or set the values. e.g.
+
+	getX()		---	Returns the set X value
+	setX(val)	---	Sets the value of X
+
+
+####################################################################

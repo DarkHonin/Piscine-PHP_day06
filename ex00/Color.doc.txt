@@ -1,0 +1,35 @@
+####################################################################
+
+				Color Class
+
+####################################################################
+Class Color handles RGB values
+
+Constructed using an array containing:
+
+RGB values
+Color(	[	'rgb'	=> "126521"]	) 	:: Max value = 16777215;
+
+Explicit RGB values
+Color(	[
+			'red'	=> "126",
+			'green'	=> "126",
+			'blue'	=> "126"
+			
+		]	)							:: Each has a max of 255
+
+Methods:
+
+	Color::add(	Color )
+		Adds a colour to the current one returning a new instance
+
+	Color::min(	Color )
+		Subtracts a colour to the current one returning a
+		new instance
+
+	Color::mult(	Color )
+		Multiplies a colour to the current one returning a
+		new instance
+
+
+####################################################################
