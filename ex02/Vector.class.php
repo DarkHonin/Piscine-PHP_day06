@@ -7,7 +7,7 @@ class Vector{
 	private $_y = 0.0;
 	private $_z = 0.0;
 	private $_w = 0.0;
-	static $verbose = true;
+	static $verbose = false;
 
 	function __construct($params){
 		if(isset($params['orig']) && $params['orig'] instanceof Vertex)
@@ -71,8 +71,7 @@ class Vector{
 		$arr = [];
 		foreach(str_split("XYZW") as $k=>$v){
 			$gstr = "get$v";
-			$sstr = "_".strtolower($v);
-			$arr[$sstr] = $D->$gstr() + $this->$gstr();
+			$arr[strtolower($v)] = $D->$gstr() + $this->$gstr();
 		}
 		return new Vector(["dest"=> new Vertex($arr)]);
 	}
@@ -81,8 +80,7 @@ class Vector{
 		$arr = [];
 		foreach(str_split("XYZW") as $k=>$v){
 			$gstr = "get$v";
-			$sstr = "_".strtolower($v);
-			$arr[$sstr] = $D->$gstr() - $this->$gstr();
+			$arr[strtolower($v)] = $D->$gstr() - $this->$gstr();
 		}
 		return new Vector(["dest"=> new Vertex($arr)]);
 	}
@@ -103,10 +101,27 @@ class Vector{
 
 	function dotProduct(Vector $rhs) : float{
 		$arr = [];
-		foreach(str_split("XYZW") as $k=>$v){
+		foreach(str_split("XYZ") as $k=>$v){
 			$gstr = "get$v";
-			$sstr = "_".strtolower($v);
-			$arr[$sstr] = $D->$gstr() * $rgs->$gstr();
+			$arr[strtolower($v)] = $D->$gstr() * $rgs->$gstr();
+		}
+		return new Vector(["dest"=> new Vertex($arr)]);
+	}
+
+	function cos(Vector $rhs) : float{
+		$a = $this->magnatude() * $rhs->magnatude();
+		$b = $this->dotProduct() + $rhs->dotProduct();
+		$c = $b / $a;
+		return acos($c);
+	}
+
+	function crossProduct(Vector $rhs) : Vector{
+		$arr = [];
+		$keys = str_split("XYZ");
+		foreach($keys as $k=>$v){
+			$gstr1 = "get".$keys[($k + 1) % 3];
+			$gstr2 = "get".$keys[($k + 2) % 3];
+			$arr[strtolower($v)] = ($this->$gstr1() * $rhs->$gstr2()) - ($rhs->$gstr1() * $this->$gstr2());
 		}
 		return new Vector(["dest"=> new Vertex($arr)]);
 	}

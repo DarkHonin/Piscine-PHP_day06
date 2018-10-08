@@ -1,0 +1,53 @@
+###############################################################################
+
+                Vector Class
+
+###############################################################################
+Class Vector handles homogeneous coordinates
+
+Constructor:
+
+    Vector(	[	dest,	orig	]	)
+
+    The first 1 value is required and defines the end point of the
+    vector. Both values are of the type Vertex;
+
+    orig	---	Defaults to (0, 0, 0);
+
+
+Methods:
+
+    Each of the values taken by the constructor assessor to get
+        the values. e.g.
+
+    getX()		---	Returns the set X value
+    
+    Additionally:
+    --------------
+
+    magnatude()			:	float	---	Returns the magnatude of the vector
+
+    normalize() 		:	Vector	---	Returns a new Normalized Vector
+
+    add(Vector) 		:	Vector	--- Returns the sum vector of the
+                                            subject and the passed value.
+    
+    sub(Vector) 		:	Vector	--- Returns the diffarence between the
+                                            subject and the passed value.
+
+    opposite(Vector)	:	Vector	---	Returns the opposite vector, 
+                                            e.g. Vector * -1.
+
+    scalarProduct(Vector) : Vector	--- Returns the mulitple of the vector
+                                            with a scalar.
+
+    dotProduct(Vector)	:	float	--- Returns the vectors dot product.
+
+    cos(Vector)			:	float	---	Returns the cosine angle between
+                                            the 2 vectors.
+
+    crossProduct(Vector) :	Vector	---	Returns the cross product of the
+                                            2 vectors.
+
+
+###############################################################################

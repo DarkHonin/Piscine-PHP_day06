@@ -8,8 +8,10 @@ $o = new Vertex(["x"=>0,"y"=>20,"z"=>0]);
 $d = new Vertex(["x"=>10,"y"=>2000,"z"=>10]);
 
 $vect = new Vector(["orig"=>$o, "dest"=>$d]);
-$vect->normalize();
-
+$vect2 = new Vector(["dest"=>$d]);
+Vector::doc();
+//$vect->normalize();
+//$vect->crossProduct($vect2);
 //Color::doc();
 
 ?>
