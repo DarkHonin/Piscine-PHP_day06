@@ -60,11 +60,14 @@ class Color{
 		return new Color($parts);
 	}
 
-	function mult(Color $a){
+	function mult($a){
 		$parts = [];
 		$keys = ["red", "green", "blue"];
 		foreach(str_split("rgb") as $k=>$c)
-			$parts[$keys[$k]] = $a->$c * $this->$c;
+			if ($a instanceof Color)
+				$parts[$keys[$k]] = $a->$c * $this->$c;
+			else
+				$parts[$keys[$k]] = $a * $this->$c;
 		return new Color($parts);
 	}
 

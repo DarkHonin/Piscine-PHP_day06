@@ -25,7 +25,7 @@ Methods:
     Additionally:
     --------------
 
-    magnatude()			:	float	---	Returns the magnatude of the vector
+    magnitude()			:	float	---	Returns the magnatude of the vector
 
     normalize() 		:	Vector	---	Returns a new Normalized Vector
 

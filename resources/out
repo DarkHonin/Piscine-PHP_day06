@@ -1,0 +1,5 @@
+
+Fatal error: Uncaught Error: Class 'Matrix' not found in /goinfre/wgourley/Piscine-PHP/Piscine-PHP_day06/resources/main_03.php:19
+Stack trace:
+#0 {main}
+  thrown in /goinfre/wgourley/Piscine-PHP/Piscine-PHP_day06/resources/main_03.php on line 19

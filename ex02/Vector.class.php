@@ -1,7 +1,5 @@
 <?php
 
-require_once("ex01/Vertex.class.php");
-
 class Vector{
 	private $_x = 0.0;
 	private $_y = 0.0;
@@ -48,7 +46,7 @@ class Vector{
 			echo $this." destructed.\n";
 	}
 
-	function magnatude() : float{
+	function magnitude() : float{
 		$t = 0;
 		foreach(str_split("_x_y_z", 2) as $v)
 			$t += pow($this->$v, 2);
@@ -56,7 +54,7 @@ class Vector{
 	}
 
 	function normalize() : Vector{
-		$m = $this->magnatude();
+		$m = $this->magnitude();
 		if ($m == 1) return clone $this;
 		$arr = [];
 		foreach(str_split("xyz", 1) as $v)
@@ -100,17 +98,17 @@ class Vector{
 	}
 
 	function dotProduct(Vector $rhs) : float{
-		$arr = [];
+		$tot = 0;
 		foreach(str_split("XYZ") as $k=>$v){
 			$gstr = "get$v";
-			$arr[strtolower($v)] = $D->$gstr() * $rgs->$gstr();
+			$tot += $this->$gstr() * $rhs->$gstr();
 		}
-		return new Vector(["dest"=> new Vertex($arr)]);
+		return $tot;
 	}
 
 	function cos(Vector $rhs) : float{
-		$a = $this->magnatude() * $rhs->magnatude();
-		$b = $this->dotProduct() + $rhs->dotProduct();
+		$a = $this->magnitude() * $rhs->magnitude();
+		$b = $this->dotProduct($rhs) + $rhs->dotProduct($rhs);
 		$c = $b / $a;
 		return acos($c);
 	}
